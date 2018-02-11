@@ -144,4 +144,31 @@ describe('YEPS static', async () => {
 
     expect(isTestFinished).is.true;
   });
+
+  it('should test next then', async () => {
+    let isTestFinished = false;
+    let isNextFinished = false;
+
+    app.then(index({
+      root: resolve(__dirname, 'files'),
+      index: 'index.html',
+      url: '/',
+    }));
+
+    app.then(async () => {
+      isNextFinished = true;
+    });
+
+    await chai.request(server)
+      .get('/')
+      .send()
+      .then((res) => {
+        expect(res).to.have.status(200);
+        expect(res.text).to.not.be.equal('ok');
+        isTestFinished = true;
+      });
+
+    expect(isTestFinished).is.true;
+    expect(isNextFinished).is.false;
+  });
 });

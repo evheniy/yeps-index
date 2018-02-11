@@ -44,7 +44,7 @@ module.exports = ({ root, index = 'index.html', url = '/' }) => async (context) 
         .pipe(context.res)
         .on('error', reject)
         .on('close', reject)
-        .on('finish', resolve);
+        .on('finish', reject);
     });
   }
 
