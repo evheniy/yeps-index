@@ -28,39 +28,43 @@ YEPS Static index.html file serving
 
 ## How to use
 
-    const App = require('yeps');
+```js
+const App = require('yeps');
     
-    const serve = require('yeps-index');
+const index = require('yeps-index');
     
-    const error = require('yeps-error');
-    const logger = require('yeps-logger');
-    const index = require('yeps-server');
+const error = require('yeps-error');
+const logger = require('yeps-logger');
+const server = require('yeps-server');
     
-    const { resolve } = require('path');
+const { resolve } = require('path');
     
-    const app = new App();
+const app = new App();
     
-    app.all([
-        error(),
-        logger(),
-        index({
-          root: resolve(__dirname, 'dist'),
-        }),
-    ]);
+app.all([
+  error(),
+  logger(),
+  index({
+    root: resolve(__dirname, 'dist'),
+  }),
+]);
     
-    server.createHttpServer(app);
+server.createHttpServer(app);
+```
 
 Or with **options**:
     
-    app.all([
-        error(),
-        logger(),
-        serve({
-            root: resolve(__dirname, 'dist'),
-            index: 'index.html'
-            url: '/',
-        }),
-    ]);
+```js
+app.all([
+  error(),
+  logger(),
+  serve({
+    root: resolve(__dirname, 'dist'),
+    index: 'index.html',
+    url: '/',
+  }),
+]);
+```
     
 Url **"/index.html"** will be redirected to **"/"** with 301 http code.
     
