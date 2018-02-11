@@ -1,0 +1,71 @@
+{
+  "name": "yeps-index",
+  "version": "0.0.1",
+  "description": "YEPS index",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm-run-all test:**",
+    "test:lint": "eslint index.js lib tests",
+    "test:security": "nsp check",
+    "test:code": "mocha tests --recursive",
+    "test:coverage": "istanbul cover _mocha -- tests --recursive",
+    "report": "cat ./coverage/lcov.info | coveralls",
+    "clear": "rimraf coverage",
+    "precommit": "npm test",
+    "prepush": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evheniy/yeps-index.git"
+  },
+  "keywords": [
+    "promise",
+    "body",
+    "http",
+    "server",
+    "rest",
+    "fast",
+    "async",
+    "await",
+    "https",
+    "ssl",
+    "easy",
+    "static"
+  ],
+  "author": "Evheniy Bystrov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/evheniy/yeps-index/issues"
+  },
+  "homepage": "https://github.com/evheniy/yeps-index#readme",
+  "files": [
+    "index.js"
+  ],
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "coveralls": "^3.0.0",
+    "eslint": "^4.17.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "husky": "^0.14.3",
+    "istanbul": "^1.1.0-alpha.1",
+    "mocha": "^5.0.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "npm-run-all": "^4.1.2",
+    "nsp": "^3.1.0",
+    "rimraf": "^2.6.2",
+    "yeps": "^1.1.1",
+    "yeps-error": "^1.3.1",
+    "yeps-server": "^1.1.2"
+  },
+  "peerDependencies": {
+    "debug": "^3.1.0"
+  },
+  "dependencies": {
+    "yeps-response": "^0.2.0"
+  }
+}
