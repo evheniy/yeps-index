@@ -23,8 +23,9 @@ YEPS Static index.html file serving
 
 ## How to install
 
-    npm i -S yeps-index debug
-  
+```shell
+npm i -S yeps-index debug
+```
 
 ## How to use
 
