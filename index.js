@@ -37,6 +37,7 @@ module.exports = ({ root, index = 'index.html', url = '/' }) => async (context) 
       context.res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
       context.res.setHeader('Pragma', 'no-cache');
       context.res.setHeader('Expires', '0');
+      context.res.setHeader('Content-Type', 'text/html;charset=UTF-8');
 
       debug('Sending file');
 

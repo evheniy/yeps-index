@@ -79,6 +79,7 @@ describe('YEPS static', async () => {
         expect(res.header['cache-control']).to.be.equal('no-store, no-cache, must-revalidate, proxy-revalidate');
         expect(res.header.pragma).to.be.equal('no-cache');
         expect(res.header.expires).to.be.equal('0');
+        expect(res.header['content-type']).to.be.equal('text/html;charset=UTF-8');
         isTestFinished = true;
       });
 
